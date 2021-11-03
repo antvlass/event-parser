@@ -38,7 +38,7 @@ class TestEvent(TestCase):
         event = Event(id=1, person=person, ip_adress='10.171.57.131')
 
         self.assertEqual(event.ip_adress, IPv4Address("10.171.57.131"))
-        self.assertEqual(event.ip_adress.is_private, False)
 
         event.ip_adress = IPv4Address("2.85.18.210")
         self.assertEqual(event.ip_adress, IPv4Address("2.85.18.210"))
+        self.assertEqual(event.ip_adress.is_private, False)
