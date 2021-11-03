@@ -9,6 +9,8 @@ from ipaddress import IPv4Address
 def ip_anonymization(ip: IPv4Address) -> IPv4Address:
     '''
     This function will anonymize a given IPV4 adress by setting the last byte to 0.
+    In this way, most of the information is preserved but cannot be linked to an 
+    individual person.
     Input: IPv4 adress to anonymize
     Output: Anonymized IPv4 adress
     '''

@@ -1,13 +1,14 @@
 import sys
 from event_parser.reader import read_events
 from event_parser.event import ip_anonymization
+from event_parser.gender import Gender
 
 
 def main(path: str) -> None:
     events = read_events(path)
     # 1. Count the number of females and print the answer
     events_females = [
-        event for event in events if event.person.gender == 'female']
+        event for event in events if event.person.gender == Gender.female]
     print("1. There are {} females in the dataset".format(len(events_females)))
 
     # 2. Count the number of females starting with letter "A" and print the answer

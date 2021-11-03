@@ -22,3 +22,21 @@ class TestPerson(TestCase):
             email="tom.sawyer@mail.com"
         )
         self.assertEqual(person.last_name, "Sawyer")
+
+    def test_gender(self):
+        person = Person(
+            first_name="Tom",
+            last_name="Sawyer",
+            gender=Gender.male,
+            email="tom.sawyer@mail.com"
+        )
+        self.assertEqual(person.gender, Gender.male)
+
+    def test_email(self):
+        person = Person(
+            first_name="Tom",
+            last_name="Sawyer",
+            gender=Gender.male,
+            email="tom.sawyer@mail.com"
+        )
+        self.assertEqual(person.email, "tom.sawyer@mail.com")
