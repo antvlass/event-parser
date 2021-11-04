@@ -4,6 +4,6 @@ Answer:
 On very large datasets it is better to use batchs of data. Each batch can then
 be processed/parsed independently without running out of memory. With enough ressources at hand,
 we could also run the batches in parallel through multi-threading or distribution across 
-different systems to optimize computing time. With his way of working it won't be possible 
-to compute indicators needing the whole dataset (count of unique values for example).
+different systems to optimize computing time. With his way of working it will be more difficult
+to make aggregations or to compute indicators needing the whole dataset (count of unique values for example).
 ...
