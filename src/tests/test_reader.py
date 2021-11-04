@@ -1,12 +1,28 @@
 from unittest import TestCase
+from ipaddress import IPv4Address
 
-from event_parser.reader import read_events
+from event_parser.reader import read_events, gender_normalization, ip_anonymization
 from event_parser.event import Event
 from event_parser.person import Person
 from event_parser.gender import Gender
 
 
 class TestReader(TestCase):
+    def test_ip_anonymization(self):
+        self.assertEqual(ip_anonymization(IPv4Address(
+            "10.171.57.131")), IPv4Address("10.171.57.0"))
+
+        self.assertEqual(ip_anonymization(IPv4Address(
+            "86.69.117.124")), IPv4Address("86.69.117.0"))
+
+        self.assertEqual(ip_anonymization(IPv4Address(
+            "110.184.3.0")), IPv4Address("110.184.3.0"))
+
+    def test_gender_normalization(self):
+        self.assertEqual(gender_normalization("Female"), Gender.female)
+        self.assertEqual(gender_normalization("MALE"), Gender.male)
+        self.assertEqual(gender_normalization(None), Gender.not_given)
+        self.assertEqual(gender_normalization("other gender"), Gender.other)
 
     def test_read_events(self):
         test_file_path = 'src/tests/data/test_data.csv'

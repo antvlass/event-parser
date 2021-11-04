@@ -1,21 +1,12 @@
 from unittest import TestCase
 from ipaddress import IPv4Address
 
-from event_parser.event import Event, ip_anonymization
+from event_parser.event import Event
 from event_parser.person import Person
 from event_parser.gender import Gender
 
 
 class TestEvent(TestCase):
-    def test_ip_anonymization(self):
-        self.assertEqual(ip_anonymization(IPv4Address(
-            "10.171.57.131")), IPv4Address("10.171.57.0"))
-
-        self.assertEqual(ip_anonymization(IPv4Address(
-            "86.69.117.124")), IPv4Address("86.69.117.0"))
-
-        self.assertEqual(ip_anonymization(IPv4Address(
-            "110.184.3.0")), IPv4Address("110.184.3.0"))
 
     def test_id(self):
         person = Person(first_name='O', last_name='V',

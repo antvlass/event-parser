@@ -1,6 +1,5 @@
 import sys
-from event_parser.reader import read_events
-from event_parser.event import ip_anonymization
+from event_parser.reader import read_events, ip_anonymization
 from event_parser.gender import Gender
 
 
