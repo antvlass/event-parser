@@ -1,8 +1,9 @@
 Task: Please describe how you would handle reading/parsing very large datasets (10s of GiB) in Python?
 
 Answer:
-On very large datasets it is better to use batchs of data. Each batch can then
-be processed/parsed independently without running out of memory. With enough ressources at hand,
-we could also run the batches in parallel through multi-threading or distribution across 
+On very large datasets I would split the data in batches/chunks. Each batch can then be processed/parsed 
+independently without running out of memory. If the problem is also well identified, I would also try to 
+optimize the input data as much as possible to reduce memory usage (drop useless information, change field typing, ...). 
+With enough resources at hand, I would also run the batches in parallel through multi-threading or distribution across 
 different systems to optimize computing time. 
 ...
